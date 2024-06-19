@@ -16,10 +16,18 @@ function colorModeToggle() {
     return defaultVal;
   }
 
+
   const htmlElement = document.documentElement;
   const computed = getComputedStyle(htmlElement);
   let toggleEl;
   let togglePressed = "false";
+  const darkIcon = document.querySelector(".dark-icon");
+  const liteIcon = document.querySelector(".lite-icon");
+
+  vfunction setIconVisibility(isDarkMode) {
+    darkIcon.style.display = isDarkMode ? "block" : "none";
+    liteIcon.style.display = isDarkMode ? "none" : "block";
+  }
 
   const scriptTag = document.querySelector("[tr-color-vars]");
   if (!scriptTag) {
@@ -68,6 +76,7 @@ function colorModeToggle() {
   }
 
   function goDark(dark, animate) {
+    const isDarkMode = dark;
     if (dark) {
       localStorage.setItem("dark-mode", "true");
       htmlElement.classList.add("dark-mode");
@@ -79,6 +88,7 @@ function colorModeToggle() {
       setColors(lightColors, animate);
       togglePressed = "false";
     }
+    setIconVisibility(dark);
     if (typeof toggleEl !== "undefined") {
       toggleEl.forEach(function (element) {
         element.setAttribute("aria-pressed", togglePressed);
@@ -87,8 +97,10 @@ function colorModeToggle() {
   }
 
   function checkPreference(e) {
-    goDark(e.matches, false);
+      const isDarkMode = e.matches; // e.matches will be true if the preference is for dark mode
+      goDark(isDarkMode, false);
   }
+  
   const colorPreference = window.matchMedia("(prefers-color-scheme: dark)");
   colorPreference.addEventListener("change", (e) => {
     checkPreference(e);
@@ -107,7 +119,6 @@ function colorModeToggle() {
       element.setAttribute("aria-label", "View Dark Mode");
       element.setAttribute("role", "button");
       element.setAttribute("aria-pressed", togglePressed);
-      element.setAttribute("class", "fa-light fa-brightness");
     });
     toggleEl.forEach(function (element) {
       element.addEventListener("click", function () {
