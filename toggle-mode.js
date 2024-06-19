@@ -107,6 +107,7 @@ function colorModeToggle() {
       element.setAttribute("aria-label", "View Dark Mode");
       element.setAttribute("role", "button");
       element.setAttribute("aria-pressed", togglePressed);
+      element.setAttribute("class", "fa-light fa-brightness");
     });
     toggleEl.forEach(function (element) {
       element.addEventListener("click", function () {
