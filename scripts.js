@@ -140,7 +140,6 @@ colorModeToggle();
 */
 
 var dom = document.getElementById('skills-chart');
-alert(yes);
 var myChart = echarts.init(dom, null, {
   renderer: 'canvas',
   useDirtyRect: false
@@ -201,7 +200,7 @@ option = {
       itemStyle: {
         color: '#c23531',
         shadowBlur: 0,
-        shadowColor: 'rgba(0, 0, 0, 0.5)'
+        shadowColor: 'rgba(0, 0, 0, 0)'
       },
       animationType: 'scale',
       animationEasing: 'elasticOut',
