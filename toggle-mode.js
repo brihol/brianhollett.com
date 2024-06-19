@@ -16,7 +16,6 @@ function colorModeToggle() {
     return defaultVal;
   }
 
-
   const htmlElement = document.documentElement;
   const computed = getComputedStyle(htmlElement);
   let toggleEl;
@@ -24,7 +23,7 @@ function colorModeToggle() {
   const darkIcon = document.querySelector(".dark-icon");
   const liteIcon = document.querySelector(".lite-icon");
 
-  vfunction setIconVisibility(isDarkMode) {
+  function setIconVisibility(isDarkMode) {
     darkIcon.style.display = isDarkMode ? "block" : "none";
     liteIcon.style.display = isDarkMode ? "none" : "block";
   }
