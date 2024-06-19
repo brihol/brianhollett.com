@@ -140,6 +140,7 @@ colorModeToggle();
 */
 
 var dom = document.getElementById('skills-chart');
+alert(yes);
 var myChart = echarts.init(dom, null, {
   renderer: 'canvas',
   useDirtyRect: false
