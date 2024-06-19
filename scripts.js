@@ -3,13 +3,13 @@
  * Copyright 2023 Timothy Ricks
  * Released under the MIT License
  * Released on: November 28, 2023
- */
+*/
 
 /**
  * Additional scripts and modifications
  * Copyright (c) 2024 Brian Hollett
  * Released under the MIT License
- */
+*/
 
 function colorModeToggle() {
   function attr(defaultVal, attrVal) {
