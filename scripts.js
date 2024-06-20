@@ -1,3 +1,4 @@
+
 /**
  * Dark Mode Toggle 1.0.2
  * Copyright 2023 Timothy Ricks
@@ -140,6 +141,9 @@ colorModeToggle();
 */
 
 var dom = document.getElementById('skills-chart');
+// Get Theme Color
+const textColor = getComputedStyle(document.documentElement).getPropertyValue(isDarkMode ? '--dark--text' : '--color--text').trim();
+
 var myChart = echarts.init(dom, null, {
   renderer: 'canvas',
   useDirtyRect: false
@@ -154,7 +158,7 @@ option = {
     left: 'center',
     top: 20,
     textStyle: {
-      color: '#333'
+      color: textColor
     }
   },
   tooltip: {
@@ -181,17 +185,17 @@ option = {
         { value: 435, name: 'Content Creation' },
         { value: 300, name: 'UX Research' },
         { value: 200, name: 'Web Development' },
-        { value: 100, name: 'Brand Design' }
+        { value: 100, name: 'DesignOps' }
       ].sort(function (a, b) {
         return a.value - b.value;
       }),
       roseType: 'radius',
       label: {
-        color: '#404349'
+        color: textColor
       },
       labelLine: {
         lineStyle: {
-          color: '#404349'
+          color: textColor
         },
         smooth: 0.2,
         length: 10,
